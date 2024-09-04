@@ -7,62 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43CFA2402C87D54F00AE860F /* vc_wallet_ios_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA23F2C87D54F00AE860F /* vc_wallet_ios_appApp.swift */; };
-		43CFA2422C87D54F00AE860F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA2412C87D54F00AE860F /* ContentView.swift */; };
-		43CFA2442C87D55000AE860F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43CFA2432C87D55000AE860F /* Assets.xcassets */; };
-		43CFA2482C87D55000AE860F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43CFA2472C87D55000AE860F /* Preview Assets.xcassets */; };
-		43CFA2522C87D55000AE860F /* vc_wallet_ios_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA2512C87D55000AE860F /* vc_wallet_ios_appTests.swift */; };
-		43CFA25C2C87D55000AE860F /* vc_wallet_ios_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA25B2C87D55000AE860F /* vc_wallet_ios_appUITests.swift */; };
-		43CFA25E2C87D55000AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA25D2C87D55000AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift */; };
+		43CFA2D52C89231500AE860F /* vc_wallet_ios_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA2D42C89231500AE860F /* vc_wallet_ios_appApp.swift */; };
+		43CFA2D72C89231500AE860F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA2D62C89231500AE860F /* ContentView.swift */; };
+		43CFA2D92C89231500AE860F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA2D82C89231500AE860F /* Item.swift */; };
+		43CFA2DB2C89231600AE860F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43CFA2DA2C89231600AE860F /* Assets.xcassets */; };
+		43CFA2DF2C89231600AE860F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43CFA2DE2C89231600AE860F /* Preview Assets.xcassets */; };
+		43CFA2E92C89231600AE860F /* vc_wallet_ios_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA2E82C89231600AE860F /* vc_wallet_ios_appTests.swift */; };
+		43CFA2F32C89231600AE860F /* vc_wallet_ios_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA2F22C89231600AE860F /* vc_wallet_ios_appUITests.swift */; };
+		43CFA2F52C89231600AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA2F42C89231600AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		43CFA24E2C87D55000AE860F /* PBXContainerItemProxy */ = {
+		43CFA2E52C89231600AE860F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 43CFA2342C87D54F00AE860F /* Project object */;
+			containerPortal = 43CFA2C92C89231500AE860F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 43CFA23B2C87D54F00AE860F;
+			remoteGlobalIDString = 43CFA2D02C89231500AE860F;
 			remoteInfo = "vc-wallet-ios-app";
 		};
-		43CFA2582C87D55000AE860F /* PBXContainerItemProxy */ = {
+		43CFA2EF2C89231600AE860F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 43CFA2342C87D54F00AE860F /* Project object */;
+			containerPortal = 43CFA2C92C89231500AE860F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 43CFA23B2C87D54F00AE860F;
+			remoteGlobalIDString = 43CFA2D02C89231500AE860F;
 			remoteInfo = "vc-wallet-ios-app";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		43CFA23C2C87D54F00AE860F /* vc-wallet-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vc-wallet-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		43CFA23F2C87D54F00AE860F /* vc_wallet_ios_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_ios_appApp.swift; sourceTree = "<group>"; };
-		43CFA2412C87D54F00AE860F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		43CFA2432C87D55000AE860F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		43CFA2452C87D55000AE860F /* vc_wallet_ios_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = vc_wallet_ios_app.entitlements; sourceTree = "<group>"; };
-		43CFA2472C87D55000AE860F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		43CFA24D2C87D55000AE860F /* vc-wallet-ios-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vc-wallet-ios-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		43CFA2512C87D55000AE860F /* vc_wallet_ios_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_ios_appTests.swift; sourceTree = "<group>"; };
-		43CFA2572C87D55000AE860F /* vc-wallet-ios-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vc-wallet-ios-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		43CFA25B2C87D55000AE860F /* vc_wallet_ios_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_ios_appUITests.swift; sourceTree = "<group>"; };
-		43CFA25D2C87D55000AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_ios_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		43CFA2D12C89231500AE860F /* vc-wallet-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vc-wallet-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43CFA2D42C89231500AE860F /* vc_wallet_ios_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_ios_appApp.swift; sourceTree = "<group>"; };
+		43CFA2D62C89231500AE860F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		43CFA2D82C89231500AE860F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		43CFA2DA2C89231600AE860F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		43CFA2DC2C89231600AE860F /* vc_wallet_ios_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = vc_wallet_ios_app.entitlements; sourceTree = "<group>"; };
+		43CFA2DE2C89231600AE860F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		43CFA2E42C89231600AE860F /* vc-wallet-ios-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vc-wallet-ios-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43CFA2E82C89231600AE860F /* vc_wallet_ios_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_ios_appTests.swift; sourceTree = "<group>"; };
+		43CFA2EE2C89231600AE860F /* vc-wallet-ios-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vc-wallet-ios-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43CFA2F22C89231600AE860F /* vc_wallet_ios_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_ios_appUITests.swift; sourceTree = "<group>"; };
+		43CFA2F42C89231600AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_ios_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		43CFA2392C87D54F00AE860F /* Frameworks */ = {
+		43CFA2CE2C89231500AE860F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43CFA24A2C87D55000AE860F /* Frameworks */ = {
+		43CFA2E12C89231600AE860F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43CFA2542C87D55000AE860F /* Frameworks */ = {
+		43CFA2EB2C89231600AE860F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,59 +74,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		43CFA2332C87D54F00AE860F = {
+		43CFA2C82C89231500AE860F = {
 			isa = PBXGroup;
 			children = (
-				43CFA23E2C87D54F00AE860F /* vc-wallet-ios-app */,
-				43CFA2502C87D55000AE860F /* vc-wallet-ios-appTests */,
-				43CFA25A2C87D55000AE860F /* vc-wallet-ios-appUITests */,
-				43CFA23D2C87D54F00AE860F /* Products */,
+				43CFA2D32C89231500AE860F /* vc-wallet-ios-app */,
+				43CFA2E72C89231600AE860F /* vc-wallet-ios-appTests */,
+				43CFA2F12C89231600AE860F /* vc-wallet-ios-appUITests */,
+				43CFA2D22C89231500AE860F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		43CFA23D2C87D54F00AE860F /* Products */ = {
+		43CFA2D22C89231500AE860F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				43CFA23C2C87D54F00AE860F /* vc-wallet-ios-app.app */,
-				43CFA24D2C87D55000AE860F /* vc-wallet-ios-appTests.xctest */,
-				43CFA2572C87D55000AE860F /* vc-wallet-ios-appUITests.xctest */,
+				43CFA2D12C89231500AE860F /* vc-wallet-ios-app.app */,
+				43CFA2E42C89231600AE860F /* vc-wallet-ios-appTests.xctest */,
+				43CFA2EE2C89231600AE860F /* vc-wallet-ios-appUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		43CFA23E2C87D54F00AE860F /* vc-wallet-ios-app */ = {
+		43CFA2D32C89231500AE860F /* vc-wallet-ios-app */ = {
 			isa = PBXGroup;
 			children = (
-				43CFA23F2C87D54F00AE860F /* vc_wallet_ios_appApp.swift */,
-				43CFA2412C87D54F00AE860F /* ContentView.swift */,
-				43CFA2432C87D55000AE860F /* Assets.xcassets */,
-				43CFA2452C87D55000AE860F /* vc_wallet_ios_app.entitlements */,
-				43CFA2462C87D55000AE860F /* Preview Content */,
+				43CFA2D42C89231500AE860F /* vc_wallet_ios_appApp.swift */,
+				43CFA2D62C89231500AE860F /* ContentView.swift */,
+				43CFA2D82C89231500AE860F /* Item.swift */,
+				43CFA2DA2C89231600AE860F /* Assets.xcassets */,
+				43CFA2DC2C89231600AE860F /* vc_wallet_ios_app.entitlements */,
+				43CFA2DD2C89231600AE860F /* Preview Content */,
 			);
 			path = "vc-wallet-ios-app";
 			sourceTree = "<group>";
 		};
-		43CFA2462C87D55000AE860F /* Preview Content */ = {
+		43CFA2DD2C89231600AE860F /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				43CFA2472C87D55000AE860F /* Preview Assets.xcassets */,
+				43CFA2DE2C89231600AE860F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		43CFA2502C87D55000AE860F /* vc-wallet-ios-appTests */ = {
+		43CFA2E72C89231600AE860F /* vc-wallet-ios-appTests */ = {
 			isa = PBXGroup;
 			children = (
-				43CFA2512C87D55000AE860F /* vc_wallet_ios_appTests.swift */,
+				43CFA2E82C89231600AE860F /* vc_wallet_ios_appTests.swift */,
 			);
 			path = "vc-wallet-ios-appTests";
 			sourceTree = "<group>";
 		};
-		43CFA25A2C87D55000AE860F /* vc-wallet-ios-appUITests */ = {
+		43CFA2F12C89231600AE860F /* vc-wallet-ios-appUITests */ = {
 			isa = PBXGroup;
 			children = (
-				43CFA25B2C87D55000AE860F /* vc_wallet_ios_appUITests.swift */,
-				43CFA25D2C87D55000AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift */,
+				43CFA2F22C89231600AE860F /* vc_wallet_ios_appUITests.swift */,
+				43CFA2F42C89231600AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift */,
 			);
 			path = "vc-wallet-ios-appUITests";
 			sourceTree = "<group>";
@@ -132,13 +135,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		43CFA23B2C87D54F00AE860F /* vc-wallet-ios-app */ = {
+		43CFA2D02C89231500AE860F /* vc-wallet-ios-app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43CFA2612C87D55000AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-app" */;
+			buildConfigurationList = 43CFA2F82C89231600AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-app" */;
 			buildPhases = (
-				43CFA2382C87D54F00AE860F /* Sources */,
-				43CFA2392C87D54F00AE860F /* Frameworks */,
-				43CFA23A2C87D54F00AE860F /* Resources */,
+				43CFA2CD2C89231500AE860F /* Sources */,
+				43CFA2CE2C89231500AE860F /* Frameworks */,
+				43CFA2CF2C89231500AE860F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -146,69 +149,69 @@
 			);
 			name = "vc-wallet-ios-app";
 			productName = "vc-wallet-ios-app";
-			productReference = 43CFA23C2C87D54F00AE860F /* vc-wallet-ios-app.app */;
+			productReference = 43CFA2D12C89231500AE860F /* vc-wallet-ios-app.app */;
 			productType = "com.apple.product-type.application";
 		};
-		43CFA24C2C87D55000AE860F /* vc-wallet-ios-appTests */ = {
+		43CFA2E32C89231600AE860F /* vc-wallet-ios-appTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43CFA2642C87D55000AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-appTests" */;
+			buildConfigurationList = 43CFA2FB2C89231600AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-appTests" */;
 			buildPhases = (
-				43CFA2492C87D55000AE860F /* Sources */,
-				43CFA24A2C87D55000AE860F /* Frameworks */,
-				43CFA24B2C87D55000AE860F /* Resources */,
+				43CFA2E02C89231600AE860F /* Sources */,
+				43CFA2E12C89231600AE860F /* Frameworks */,
+				43CFA2E22C89231600AE860F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				43CFA24F2C87D55000AE860F /* PBXTargetDependency */,
+				43CFA2E62C89231600AE860F /* PBXTargetDependency */,
 			);
 			name = "vc-wallet-ios-appTests";
 			productName = "vc-wallet-ios-appTests";
-			productReference = 43CFA24D2C87D55000AE860F /* vc-wallet-ios-appTests.xctest */;
+			productReference = 43CFA2E42C89231600AE860F /* vc-wallet-ios-appTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		43CFA2562C87D55000AE860F /* vc-wallet-ios-appUITests */ = {
+		43CFA2ED2C89231600AE860F /* vc-wallet-ios-appUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43CFA2672C87D55000AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-appUITests" */;
+			buildConfigurationList = 43CFA2FE2C89231600AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-appUITests" */;
 			buildPhases = (
-				43CFA2532C87D55000AE860F /* Sources */,
-				43CFA2542C87D55000AE860F /* Frameworks */,
-				43CFA2552C87D55000AE860F /* Resources */,
+				43CFA2EA2C89231600AE860F /* Sources */,
+				43CFA2EB2C89231600AE860F /* Frameworks */,
+				43CFA2EC2C89231600AE860F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				43CFA2592C87D55000AE860F /* PBXTargetDependency */,
+				43CFA2F02C89231600AE860F /* PBXTargetDependency */,
 			);
 			name = "vc-wallet-ios-appUITests";
 			productName = "vc-wallet-ios-appUITests";
-			productReference = 43CFA2572C87D55000AE860F /* vc-wallet-ios-appUITests.xctest */;
+			productReference = 43CFA2EE2C89231600AE860F /* vc-wallet-ios-appUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		43CFA2342C87D54F00AE860F /* Project object */ = {
+		43CFA2C92C89231500AE860F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					43CFA23B2C87D54F00AE860F = {
+					43CFA2D02C89231500AE860F = {
 						CreatedOnToolsVersion = 15.4;
 					};
-					43CFA24C2C87D55000AE860F = {
+					43CFA2E32C89231600AE860F = {
 						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 43CFA23B2C87D54F00AE860F;
+						TestTargetID = 43CFA2D02C89231500AE860F;
 					};
-					43CFA2562C87D55000AE860F = {
+					43CFA2ED2C89231600AE860F = {
 						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 43CFA23B2C87D54F00AE860F;
+						TestTargetID = 43CFA2D02C89231500AE860F;
 					};
 				};
 			};
-			buildConfigurationList = 43CFA2372C87D54F00AE860F /* Build configuration list for PBXProject "vc-wallet-ios-app" */;
+			buildConfigurationList = 43CFA2CC2C89231500AE860F /* Build configuration list for PBXProject "vc-wallet-ios-app" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -216,36 +219,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 43CFA2332C87D54F00AE860F;
-			productRefGroup = 43CFA23D2C87D54F00AE860F /* Products */;
+			mainGroup = 43CFA2C82C89231500AE860F;
+			productRefGroup = 43CFA2D22C89231500AE860F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				43CFA23B2C87D54F00AE860F /* vc-wallet-ios-app */,
-				43CFA24C2C87D55000AE860F /* vc-wallet-ios-appTests */,
-				43CFA2562C87D55000AE860F /* vc-wallet-ios-appUITests */,
+				43CFA2D02C89231500AE860F /* vc-wallet-ios-app */,
+				43CFA2E32C89231600AE860F /* vc-wallet-ios-appTests */,
+				43CFA2ED2C89231600AE860F /* vc-wallet-ios-appUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		43CFA23A2C87D54F00AE860F /* Resources */ = {
+		43CFA2CF2C89231500AE860F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43CFA2482C87D55000AE860F /* Preview Assets.xcassets in Resources */,
-				43CFA2442C87D55000AE860F /* Assets.xcassets in Resources */,
+				43CFA2DF2C89231600AE860F /* Preview Assets.xcassets in Resources */,
+				43CFA2DB2C89231600AE860F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43CFA24B2C87D55000AE860F /* Resources */ = {
+		43CFA2E22C89231600AE860F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43CFA2552C87D55000AE860F /* Resources */ = {
+		43CFA2EC2C89231600AE860F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,49 +258,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		43CFA2382C87D54F00AE860F /* Sources */ = {
+		43CFA2CD2C89231500AE860F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43CFA2422C87D54F00AE860F /* ContentView.swift in Sources */,
-				43CFA2402C87D54F00AE860F /* vc_wallet_ios_appApp.swift in Sources */,
+				43CFA2D72C89231500AE860F /* ContentView.swift in Sources */,
+				43CFA2D92C89231500AE860F /* Item.swift in Sources */,
+				43CFA2D52C89231500AE860F /* vc_wallet_ios_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43CFA2492C87D55000AE860F /* Sources */ = {
+		43CFA2E02C89231600AE860F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43CFA2522C87D55000AE860F /* vc_wallet_ios_appTests.swift in Sources */,
+				43CFA2E92C89231600AE860F /* vc_wallet_ios_appTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43CFA2532C87D55000AE860F /* Sources */ = {
+		43CFA2EA2C89231600AE860F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43CFA25E2C87D55000AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift in Sources */,
-				43CFA25C2C87D55000AE860F /* vc_wallet_ios_appUITests.swift in Sources */,
+				43CFA2F52C89231600AE860F /* vc_wallet_ios_appUITestsLaunchTests.swift in Sources */,
+				43CFA2F32C89231600AE860F /* vc_wallet_ios_appUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		43CFA24F2C87D55000AE860F /* PBXTargetDependency */ = {
+		43CFA2E62C89231600AE860F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43CFA23B2C87D54F00AE860F /* vc-wallet-ios-app */;
-			targetProxy = 43CFA24E2C87D55000AE860F /* PBXContainerItemProxy */;
+			target = 43CFA2D02C89231500AE860F /* vc-wallet-ios-app */;
+			targetProxy = 43CFA2E52C89231600AE860F /* PBXContainerItemProxy */;
 		};
-		43CFA2592C87D55000AE860F /* PBXTargetDependency */ = {
+		43CFA2F02C89231600AE860F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43CFA23B2C87D54F00AE860F /* vc-wallet-ios-app */;
-			targetProxy = 43CFA2582C87D55000AE860F /* PBXContainerItemProxy */;
+			target = 43CFA2D02C89231500AE860F /* vc-wallet-ios-app */;
+			targetProxy = 43CFA2EF2C89231600AE860F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		43CFA25F2C87D55000AE860F /* Debug */ = {
+		43CFA2F62C89231600AE860F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -358,7 +362,7 @@
 			};
 			name = Debug;
 		};
-		43CFA2602C87D55000AE860F /* Release */ = {
+		43CFA2F72C89231600AE860F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -411,7 +415,7 @@
 			};
 			name = Release;
 		};
-		43CFA2622C87D55000AE860F /* Debug */ = {
+		43CFA2F92C89231600AE860F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -435,7 +439,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.idp.wallet.app.vc-wallet-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,7 +451,7 @@
 			};
 			name = Debug;
 		};
-		43CFA2632C87D55000AE860F /* Release */ = {
+		43CFA2FA2C89231600AE860F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -471,7 +475,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.idp.wallet.app.vc-wallet-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -483,7 +487,7 @@
 			};
 			name = Release;
 		};
-		43CFA2652C87D55000AE860F /* Debug */ = {
+		43CFA2FC2C89231600AE860F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -505,7 +509,7 @@
 			};
 			name = Debug;
 		};
-		43CFA2662C87D55000AE860F /* Release */ = {
+		43CFA2FD2C89231600AE860F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -527,7 +531,7 @@
 			};
 			name = Release;
 		};
-		43CFA2682C87D55000AE860F /* Debug */ = {
+		43CFA2FF2C89231600AE860F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -548,7 +552,7 @@
 			};
 			name = Debug;
 		};
-		43CFA2692C87D55000AE860F /* Release */ = {
+		43CFA3002C89231600AE860F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -572,43 +576,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		43CFA2372C87D54F00AE860F /* Build configuration list for PBXProject "vc-wallet-ios-app" */ = {
+		43CFA2CC2C89231500AE860F /* Build configuration list for PBXProject "vc-wallet-ios-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43CFA25F2C87D55000AE860F /* Debug */,
-				43CFA2602C87D55000AE860F /* Release */,
+				43CFA2F62C89231600AE860F /* Debug */,
+				43CFA2F72C89231600AE860F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43CFA2612C87D55000AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-app" */ = {
+		43CFA2F82C89231600AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43CFA2622C87D55000AE860F /* Debug */,
-				43CFA2632C87D55000AE860F /* Release */,
+				43CFA2F92C89231600AE860F /* Debug */,
+				43CFA2FA2C89231600AE860F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43CFA2642C87D55000AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-appTests" */ = {
+		43CFA2FB2C89231600AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-appTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43CFA2652C87D55000AE860F /* Debug */,
-				43CFA2662C87D55000AE860F /* Release */,
+				43CFA2FC2C89231600AE860F /* Debug */,
+				43CFA2FD2C89231600AE860F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43CFA2672C87D55000AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-appUITests" */ = {
+		43CFA2FE2C89231600AE860F /* Build configuration list for PBXNativeTarget "vc-wallet-ios-appUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43CFA2682C87D55000AE860F /* Debug */,
-				43CFA2692C87D55000AE860F /* Release */,
+				43CFA2FF2C89231600AE860F /* Debug */,
+				43CFA3002C89231600AE860F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 43CFA2342C87D54F00AE860F /* Project object */;
+	rootObject = 43CFA2C92C89231500AE860F /* Project object */;
 }

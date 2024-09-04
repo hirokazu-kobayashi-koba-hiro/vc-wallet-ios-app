@@ -2,7 +2,7 @@
 //  vc_wallet_ios_appUITests.swift
 //  vc-wallet-ios-appUITests
 //
-//  Created by 小林弘和 on 2024/09/04.
+//  Created by 小林弘和 on 2024/09/05.
 //
 
 import XCTest

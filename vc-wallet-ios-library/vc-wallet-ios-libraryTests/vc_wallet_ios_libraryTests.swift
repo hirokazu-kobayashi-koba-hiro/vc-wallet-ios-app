@@ -1,13 +1,14 @@
 //
-//  vc_wallet_ios_appTests.swift
-//  vc-wallet-ios-appTests
+//  vc_wallet_ios_libraryTests.swift
+//  vc-wallet-ios-libraryTests
 //
 //  Created by 小林弘和 on 2024/09/05.
 //
 
 import XCTest
+@testable import vc_wallet_ios_library
 
-final class vc_wallet_ios_appTests: XCTestCase {
+class vc_wallet_ios_libraryTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,7 +28,7 @@ final class vc_wallet_ios_appTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:vc-wallet-ios-app/vc-wallet-ios-app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:vc-wallet-ios-library/vc-wallet-ios-library.xcodeproj">
+   </FileRef>
+</Workspace>
