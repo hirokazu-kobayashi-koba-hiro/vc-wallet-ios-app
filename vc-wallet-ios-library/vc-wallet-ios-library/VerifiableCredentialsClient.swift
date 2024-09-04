@@ -10,5 +10,14 @@ import Foundation
 public class VerifiableCredentialsClient {
     
     public static let shared = VerifiableCredentialsClient()
+    private var configuration: WalletConfiguration?
+    
+    private init() {
+        
+    }
+    
+    public func configure(configuration: WalletConfiguration) {
+        self.configuration = configuration
+    }
     
 }

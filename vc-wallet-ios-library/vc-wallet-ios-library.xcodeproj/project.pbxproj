@@ -12,6 +12,7 @@
 		43CFA2BE2C89228600AE860F /* vc_wallet_ios_libraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA2BD2C89228600AE860F /* vc_wallet_ios_libraryTests.swift */; };
 		43CFA2BF2C89228600AE860F /* vc_wallet_ios_library.h in Headers */ = {isa = PBXBuildFile; fileRef = 43CFA2B12C89228600AE860F /* vc_wallet_ios_library.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43CFA3022C8925CD00AE860F /* VerifiableCredentialsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA3012C8925CD00AE860F /* VerifiableCredentialsClient.swift */; };
+		43CFA3042C892A5500AE860F /* WalletConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFA3032C892A5500AE860F /* WalletConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		43CFA2B82C89228600AE860F /* vc-wallet-ios-libraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vc-wallet-ios-libraryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CFA2BD2C89228600AE860F /* vc_wallet_ios_libraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_ios_libraryTests.swift; sourceTree = "<group>"; };
 		43CFA3012C8925CD00AE860F /* VerifiableCredentialsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialsClient.swift; sourceTree = "<group>"; };
+		43CFA3032C892A5500AE860F /* WalletConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				43CFA2B12C89228600AE860F /* vc_wallet_ios_library.h */,
 				43CFA3012C8925CD00AE860F /* VerifiableCredentialsClient.swift */,
+				43CFA3032C892A5500AE860F /* WalletConfiguration.swift */,
 				43CFA2B22C89228600AE860F /* vc_wallet_ios_library.docc */,
 			);
 			path = "vc-wallet-ios-library";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43CFA3022C8925CD00AE860F /* VerifiableCredentialsClient.swift in Sources */,
+				43CFA3042C892A5500AE860F /* WalletConfiguration.swift in Sources */,
 				43CFA2B32C89228600AE860F /* vc_wallet_ios_library.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
