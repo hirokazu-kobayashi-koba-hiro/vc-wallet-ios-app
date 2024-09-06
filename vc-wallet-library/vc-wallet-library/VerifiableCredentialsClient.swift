@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+
+public class VerifiableCredentialsClient {
+    
+    public static let shared = VerifiableCredentialsClient()
+    
+    private init() {
+        
+    }
+    
+    
+    public func configure() {
+        
+    }
+}

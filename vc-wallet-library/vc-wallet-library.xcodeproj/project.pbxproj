@@ -11,6 +11,7 @@
 		430BD63B2C8B36290022EDCA /* vc_wallet_library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430BD6302C8B36290022EDCA /* vc_wallet_library.framework */; };
 		430BD6402C8B36290022EDCA /* vc_wallet_libraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD63F2C8B36290022EDCA /* vc_wallet_libraryTests.swift */; };
 		430BD6412C8B36290022EDCA /* vc_wallet_library.h in Headers */ = {isa = PBXBuildFile; fileRef = 430BD6332C8B36290022EDCA /* vc_wallet_library.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		430BD6832C8B37FE0022EDCA /* VerifiableCredentialsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6822C8B37FE0022EDCA /* VerifiableCredentialsClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		430BD6342C8B36290022EDCA /* vc_wallet_library.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = vc_wallet_library.docc; sourceTree = "<group>"; };
 		430BD63A2C8B36290022EDCA /* vc-wallet-libraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vc-wallet-libraryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		430BD63F2C8B36290022EDCA /* vc_wallet_libraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_libraryTests.swift; sourceTree = "<group>"; };
+		430BD6822C8B37FE0022EDCA /* VerifiableCredentialsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialsClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				430BD6332C8B36290022EDCA /* vc_wallet_library.h */,
+				430BD6822C8B37FE0022EDCA /* VerifiableCredentialsClient.swift */,
 				430BD6342C8B36290022EDCA /* vc_wallet_library.docc */,
 			);
 			path = "vc-wallet-library";
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430BD6832C8B37FE0022EDCA /* VerifiableCredentialsClient.swift in Sources */,
 				430BD6352C8B36290022EDCA /* vc_wallet_library.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +413,7 @@
 		430BD6482C8B36290022EDCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -424,6 +429,7 @@
 		430BD6492C8B36290022EDCA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
