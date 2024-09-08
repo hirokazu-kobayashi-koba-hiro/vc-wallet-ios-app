@@ -14,6 +14,7 @@
 		430BD6832C8B37FE0022EDCA /* VerifiableCredentialsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6822C8B37FE0022EDCA /* VerifiableCredentialsClient.swift */; };
 		430BD6862C8B3CD40022EDCA /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6852C8B3CD40022EDCA /* HttpClient.swift */; };
 		430BD6882C8B3E9B0022EDCA /* VerifiableCredentialsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6872C8B3E9B0022EDCA /* VerifiableCredentialsError.swift */; };
+		430BD68A2C8DE5040022EDCA /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6892C8DE5040022EDCA /* HttpClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		430BD6822C8B37FE0022EDCA /* VerifiableCredentialsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialsClient.swift; sourceTree = "<group>"; };
 		430BD6852C8B3CD40022EDCA /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		430BD6872C8B3E9B0022EDCA /* VerifiableCredentialsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialsError.swift; sourceTree = "<group>"; };
+		430BD6892C8DE5040022EDCA /* HttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				430BD63F2C8B36290022EDCA /* vc_wallet_libraryTests.swift */,
+				430BD6892C8DE5040022EDCA /* HttpClientTests.swift */,
 			);
 			path = "vc-wallet-libraryTests";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430BD68A2C8DE5040022EDCA /* HttpClientTests.swift in Sources */,
 				430BD6402C8B36290022EDCA /* vc_wallet_libraryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

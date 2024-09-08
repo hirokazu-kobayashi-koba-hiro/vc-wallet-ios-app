@@ -10,71 +10,70 @@ import Foundation
 
 public class HttpClient {
     
-    // Singleton instance (optional)
-    static let shared = HttpClient()
+    let urlSession: URLSession
     
-    private init() {} // Private initializer to enforce singleton pattern
+    public init(sessonConfiguration: URLSessionConfiguration) {
+        urlSession = URLSession.init(configuration: sessonConfiguration)
+    }
     
-    // Async GET Request with dictionary response
+    
+
     public func get(url: String) async throws -> [String: Any] {
         guard let url = URL(string: url) else {
             throw URLError(.badURL) // Throw error if URL is invalid
         }
         
-        // Create a URLRequest
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
-        // Perform the request
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await urlSession.data(for: request)
         
-        // Validate response status code
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw URLError(.badServerResponse)
         }
         
-        // Parse the JSON data into a dictionary
+    
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
         
-        // Ensure the parsed object is a dictionary
         guard let dictionary = jsonObject as? [String: Any] else {
             throw URLError(.cannotParseResponse)
         }
         
-        return dictionary // Return the dictionary
+        return dictionary
     }
     
     // Async POST Request with dictionary response
-    public func post(url: String, body: [String: Any]) async throws -> [String: Any] {
+    public func post(url: String, headers: [String: String]? = nil, body: [String: Any]? = nil) async throws -> [String: Any] {
         guard let url = URL(string: url) else {
-            throw URLError(.badURL) // Throw error if URL is invalid
+            throw URLError(.badURL)
         }
         
-        // Create a URLRequest
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+       
+        headers?.forEach { header in
+            request.setValue(header.value, forHTTPHeaderField: header.value)
+        }
         
-        // Convert body dictionary to JSON
-        let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
-        request.httpBody = jsonData
         
-        // Perform the request
-        let (data, response) = try await URLSession.shared.data(for: request)
+        if body != nil {
+            let jsonData = try JSONSerialization.data(withJSONObject: body!, options: [])
+            request.httpBody = jsonData
+        }
         
-        // Validate response status code
+        let (data, response) = try await urlSession.data(for: request)
+        
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw URLError(.badServerResponse)
         }
         
-        // Parse the JSON data into a dictionary
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
         
-        // Ensure the parsed object is a dictionary
         guard let dictionary = jsonObject as? [String: Any] else {
             throw URLError(.cannotParseResponse)
         }
         
-        return dictionary // Return the dictionary
+        return dictionary
     }
 }
