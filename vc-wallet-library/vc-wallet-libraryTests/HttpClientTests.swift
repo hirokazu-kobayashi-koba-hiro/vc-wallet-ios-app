@@ -28,7 +28,7 @@ final class HttpClientTests: XCTestCase {
         
         // When
         let config = URLSessionConfiguration.ephemeral
-        let httpClient = HttpClient(sessonConfiguration: config)
+        let httpClient = HttpClient(sessionConfiguration: config)
         let response = try await httpClient.get(url: url)
         
         // Then
@@ -62,7 +62,7 @@ final class HttpClientTests: XCTestCase {
         
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [MockURLProtocol.self]
-        let httpClient = HttpClient(sessonConfiguration: config)
+        let httpClient = HttpClient(sessionConfiguration: config)
         
         let body: [String: Any] = [
             "title": "foo",

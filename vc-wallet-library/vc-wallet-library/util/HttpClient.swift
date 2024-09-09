@@ -12,37 +12,31 @@ public class HttpClient {
     
     let urlSession: URLSession
     
-    public init(sessonConfiguration: URLSessionConfiguration) {
-        urlSession = URLSession.init(configuration: sessonConfiguration)
+    public init(sessionConfiguration: URLSessionConfiguration) {
+        urlSession = URLSession.init(configuration: sessionConfiguration)
     }
     
     
-
-    public func get(url: String) async throws -> [String: Any] {
+    
+    public func get(url: String, headers: [String: String]? = nil) async throws -> [String: Any] {
         guard let url = URL(string: url) else {
-            throw URLError(.badURL) // Throw error if URL is invalid
+            throw URLError(.badURL)
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        headers?.forEach { header in
+            request.setValue(header.value, forHTTPHeaderField: header.key)
+        }
         
         let (data, response) = try await urlSession.data(for: request)
         
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw URLError(.badServerResponse)
-        }
+        let responseBody = try handleResponse(response: response, data: data)
         
-    
-        let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-        
-        guard let dictionary = jsonObject as? [String: Any] else {
-            throw URLError(.cannotParseResponse)
-        }
-        
-        return dictionary
+        return responseBody
     }
     
-    // Async POST Request with dictionary response
+    
     public func post(url: String, headers: [String: String]? = nil, body: [String: Any]? = nil) async throws -> [String: Any] {
         guard let url = URL(string: url) else {
             throw URLError(.badURL)
@@ -51,29 +45,57 @@ public class HttpClient {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-       
+        
         headers?.forEach { header in
             request.setValue(header.value, forHTTPHeaderField: header.value)
         }
         
         
-        if body != nil {
-            let jsonData = try JSONSerialization.data(withJSONObject: body!, options: [])
+        if let body = body {
+            let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
             request.httpBody = jsonData
         }
         
         let (data, response) = try await urlSession.data(for: request)
         
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+        let responseBody = try handleResponse(response: response, data: data)
+        
+        
+        return responseBody
+    }
+    
+    private func handleResponse(response: URLResponse, data: Data) throws -> [String: Any] {
+        guard let httpResponse = response as? HTTPURLResponse else {
             throw URLError(.badServerResponse)
         }
-        
+        let statusCode = httpResponse.statusCode
+        print("HTTP response with status code: \(statusCode)")
+        let response = try parse(data)
+        switch statusCode {
+        case 200...299:
+            return response
+        case 429:
+            throw HttpError.tooManyRequestsError(statusCode: statusCode, response: response)
+        case 400...499:
+            throw HttpError.clientError(statusCode: statusCode, response: response)
+        case 503:
+            throw HttpError.serverMentenanceError(statusCode: statusCode, response: response)
+        case 500:
+            throw HttpError.serverError(statusCode: statusCode, response: response)
+        default:
+            throw HttpError.networkError(statusCode: statusCode, response: response)
+        }
+    }
+    
+    private func parse(_ data: Data) throws -> [String: Any] {
+        guard !data.isEmpty else {
+            return [:]
+        }
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-        
         guard let dictionary = jsonObject as? [String: Any] else {
             throw URLError(.cannotParseResponse)
         }
-        
         return dictionary
+        
     }
 }
