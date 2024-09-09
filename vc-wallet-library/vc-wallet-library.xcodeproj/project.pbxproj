@@ -12,6 +12,9 @@
 		430BD6402C8B36290022EDCA /* vc_wallet_libraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD63F2C8B36290022EDCA /* vc_wallet_libraryTests.swift */; };
 		430BD6412C8B36290022EDCA /* vc_wallet_library.h in Headers */ = {isa = PBXBuildFile; fileRef = 430BD6332C8B36290022EDCA /* vc_wallet_library.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		430BD6832C8B37FE0022EDCA /* VerifiableCredentialsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6822C8B37FE0022EDCA /* VerifiableCredentialsClient.swift */; };
+		430BD6862C8B3CD40022EDCA /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6852C8B3CD40022EDCA /* HttpClient.swift */; };
+		430BD6882C8B3E9B0022EDCA /* VerifiableCredentialsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6872C8B3E9B0022EDCA /* VerifiableCredentialsError.swift */; };
+		430BD68A2C8DE5040022EDCA /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6892C8DE5040022EDCA /* HttpClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,9 @@
 		430BD63A2C8B36290022EDCA /* vc-wallet-libraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vc-wallet-libraryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		430BD63F2C8B36290022EDCA /* vc_wallet_libraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc_wallet_libraryTests.swift; sourceTree = "<group>"; };
 		430BD6822C8B37FE0022EDCA /* VerifiableCredentialsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialsClient.swift; sourceTree = "<group>"; };
+		430BD6852C8B3CD40022EDCA /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		430BD6872C8B3E9B0022EDCA /* VerifiableCredentialsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialsError.swift; sourceTree = "<group>"; };
+		430BD6892C8DE5040022EDCA /* HttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +79,11 @@
 		430BD6322C8B36290022EDCA /* vc-wallet-library */ = {
 			isa = PBXGroup;
 			children = (
+				430BD6842C8B3CAA0022EDCA /* util */,
 				430BD6332C8B36290022EDCA /* vc_wallet_library.h */,
 				430BD6822C8B37FE0022EDCA /* VerifiableCredentialsClient.swift */,
 				430BD6342C8B36290022EDCA /* vc_wallet_library.docc */,
+				430BD6872C8B3E9B0022EDCA /* VerifiableCredentialsError.swift */,
 			);
 			path = "vc-wallet-library";
 			sourceTree = "<group>";
@@ -84,8 +92,17 @@
 			isa = PBXGroup;
 			children = (
 				430BD63F2C8B36290022EDCA /* vc_wallet_libraryTests.swift */,
+				430BD6892C8DE5040022EDCA /* HttpClientTests.swift */,
 			);
 			path = "vc-wallet-libraryTests";
+			sourceTree = "<group>";
+		};
+		430BD6842C8B3CAA0022EDCA /* util */ = {
+			isa = PBXGroup;
+			children = (
+				430BD6852C8B3CD40022EDCA /* HttpClient.swift */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430BD6882C8B3E9B0022EDCA /* VerifiableCredentialsError.swift in Sources */,
 				430BD6832C8B37FE0022EDCA /* VerifiableCredentialsClient.swift in Sources */,
+				430BD6862C8B3CD40022EDCA /* HttpClient.swift in Sources */,
 				430BD6352C8B36290022EDCA /* vc_wallet_library.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430BD68A2C8DE5040022EDCA /* HttpClientTests.swift in Sources */,
 				430BD6402C8B36290022EDCA /* vc_wallet_libraryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +380,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -368,13 +389,17 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.idp.wallet.app.vc-wallet-library";
+				PRODUCT_BUNDLE_IDENTIFIER = org.idp.wallet.library;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -392,6 +417,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -400,13 +426,17 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.idp.wallet.app.vc-wallet-library";
+				PRODUCT_BUNDLE_IDENTIFIER = org.idp.wallet.library;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
