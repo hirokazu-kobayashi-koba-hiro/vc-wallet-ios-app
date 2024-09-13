@@ -47,7 +47,7 @@ public class HttpClient {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         headers?.forEach { header in
-            request.setValue(header.value, forHTTPHeaderField: header.value)
+            request.setValue(header.value, forHTTPHeaderField: header.key)
         }
         
         
@@ -80,7 +80,7 @@ public class HttpClient {
             throw HttpError.clientError(statusCode: statusCode, response: response)
         case 503:
             throw HttpError.serverMentenanceError(statusCode: statusCode, response: response)
-        case 500:
+        case 500...599:
             throw HttpError.serverError(statusCode: statusCode, response: response)
         default:
             throw HttpError.networkError(statusCode: statusCode, response: response)
@@ -92,6 +92,7 @@ public class HttpClient {
             return [:]
         }
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+        print("Response: \(jsonObject)")
         guard let dictionary = jsonObject as? [String: Any] else {
             throw URLError(.cannotParseResponse)
         }
