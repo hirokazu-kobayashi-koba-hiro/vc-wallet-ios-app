@@ -14,7 +14,9 @@ public class Logger {
     private init() {}
     
     public func debug(_ message: String) {
+      #if DEBUG
         log(message, level: .debug)
+      #endif
     }
     
     public func info(_ message: String) {
@@ -31,10 +33,8 @@ public class Logger {
     
     
     private func log(_ message: String, level: LogLevel) {
-      #if DEBUG
         let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .long)
         print("[\(timestamp)] [\(level.rawValue)] - \(message)")
-      #endif
     }
 }
 
