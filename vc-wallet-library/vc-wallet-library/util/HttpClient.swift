@@ -92,7 +92,7 @@ public class HttpClient {
             return [:]
         }
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-        print("Response: \(jsonObject)")
+        Logger.shared.debug("Response: \(jsonObject)")
         guard let dictionary = jsonObject as? [String: Any] else {
             throw URLError(.cannotParseResponse)
         }
