@@ -16,6 +16,7 @@
 		430BD6882C8B3E9B0022EDCA /* VerifiableCredentialsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6872C8B3E9B0022EDCA /* VerifiableCredentialsError.swift */; };
 		430BD68A2C8DE5040022EDCA /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6892C8DE5040022EDCA /* HttpClientTests.swift */; };
 		430BD68C2C950E190022EDCA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD68B2C950E190022EDCA /* Logger.swift */; };
+		430BD68F2C9522B60022EDCA /* JOSESwift in Frameworks */ = {isa = PBXBuildFile; productRef = 430BD68E2C9522B60022EDCA /* JOSESwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430BD68F2C9522B60022EDCA /* JOSESwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +138,9 @@
 			dependencies = (
 			);
 			name = "vc-wallet-library";
+			packageProductDependencies = (
+				430BD68E2C9522B60022EDCA /* JOSESwift */,
+			);
 			productName = "vc-wallet-library";
 			productReference = 430BD6302C8B36290022EDCA /* vc_wallet_library.framework */;
 			productType = "com.apple.product-type.framework";
@@ -185,6 +190,9 @@
 				Base,
 			);
 			mainGroup = 430BD6262C8B36290022EDCA;
+			packageReferences = (
+				430BD68D2C9522B60022EDCA /* XCRemoteSwiftPackageReference "JOSESwift" */,
+			);
 			productRefGroup = 430BD6312C8B36290022EDCA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -507,6 +515,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		430BD68D2C9522B60022EDCA /* XCRemoteSwiftPackageReference "JOSESwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airsidemobile/JOSESwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		430BD68E2C9522B60022EDCA /* JOSESwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 430BD68D2C9522B60022EDCA /* XCRemoteSwiftPackageReference "JOSESwift" */;
+			productName = JOSESwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 430BD6272C8B36290022EDCA /* Project object */;
 }
