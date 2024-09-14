@@ -13,19 +13,19 @@ public class Logger {
     
     private init() {}
     
-    func debug(_ message: String) {
+    public func debug(_ message: String) {
         log(message, level: .debug)
     }
     
-    func info(_ message: String) {
+    public func info(_ message: String) {
         log(message, level: .info)
     }
     
-    func warn(_ message: String) {
+    public func warn(_ message: String) {
         log(message, level: .warning)
     }
     
-    func error(_ message: String) {
+    public func error(_ message: String) {
         log(message, level: .error)
     }
     
