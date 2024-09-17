@@ -124,6 +124,6 @@ func toAlgorithm(algorithm: String) throws -> SignatureAlgorithm {
     case "ES512":
         return SignatureAlgorithm.ES512
     default:
-        throw NSError(domain: "JoseUtil", code: -1)
+        throw JoseUtilError.unsupportedAlgorithm(algorithm)
     }
 }
