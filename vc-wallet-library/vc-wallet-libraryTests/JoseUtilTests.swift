@@ -19,21 +19,22 @@ final class JoseUtilTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testSign() throws {
+    func testSignWithECPrivateKey() throws {
+        // Given
         let keyPair = try ECKeyPair.generateWith(.P256)
         let privateKey = keyPair.getPrivate()
-
         guard let privateKeyValue = privateKey.jsonString() else {
            return
         }
         
-        do {
-            let jws = try JoseUtil.shared.sign(algorithm: "ES256", privateKeyAsJwk: privateKeyValue, headers: [:], claims: ["sub": "123"])
-            print(jws)
-        } catch (let error) {
-            print(error)
-        }
+        // When
+        let jws = try JoseUtil.shared.sign(algorithm: "ES256", privateKeyAsJwk: privateKeyValue, headers: [:], claims: ["sub": "123"])
+        print(jws)
+        
+        // Then
+        XCTAssertNotNil(jws)
     }
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

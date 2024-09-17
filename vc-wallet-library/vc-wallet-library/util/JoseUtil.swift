@@ -20,22 +20,81 @@ public class JoseUtil {
         
         let claimsAsString = try JSONSerialization.data(withJSONObject: claims, options: [])
         let payload = Payload(claimsAsString)
-        let secKey = try SecKey.representing(ecPrivateKeyComponents: convertJWKToECPrivateKeyComponents(privateKeyAsJwk: privateKeyAsJwk))
-        let optionalSigner = Signer(signatureAlgorithm: algorithm, key: secKey)
-        guard let signer = optionalSigner else {
-            throw NSError(domain: "JoseUtil", code: 1)
+        
+        let secKey = try SecKey.convertFromJwk(algorithm: algorithm, privateKey: privateKeyAsJwk)
+        guard let signer = Signer(signatureAlgorithm: algorithm, key: secKey) else {
+            throw NSError(domain: "SignerError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid signer, privaet key or algorithm is invalid"])
         }
         
         guard let jws = try? JWS(header: jwsHeader, payload: payload, signer: signer) else {
-            throw NSError(domain: "JoseUtil", code: 2)
+            throw NSError(domain: "JwsError", code: 2, userInfo: [NSLocalizedDescriptionKey: "Invalid jws"])
         }
         let jwtValue = jws.compactSerializedString
         Logger.shared.debug(jwtValue)
+        
         return jwtValue
     }
 }
 
-func convertJWKToECPrivateKeyComponents(privateKeyAsJwk: String) throws -> ECPrivateKeyComponents {
+extension SecKey {
+    
+    static func convertFromJwk(algorithm: SignatureAlgorithm, privateKey: String) throws -> SecKey {
+        
+        switch algorithm {
+            
+        case .HS256, .HS384, .HS512:
+            
+            throw NSError(domain: "unsupported algorithim", code: -1, userInfo: [NSLocalizedDescriptionKey: "\(algorithm.rawValue) is unsupported"])
+            
+        case .RS256, .RS384, .RS512, .PS256, .PS384, .PS512:
+            
+            throw NSError(domain: "unsupported algorithim", code: -1, userInfo: [NSLocalizedDescriptionKey: "\(algorithm.rawValue) is unsupported"])
+            
+        case .ES256, .ES384, .ES512:
+            
+            return try convertECPrivateKey(privateKeyAsJwk: privateKey)
+        }
+    }
+}
+
+//FIXME unsupported
+func convertRSAPrivateKey(privateKeyAsJwk: String) throws -> SecKey {
+    
+    guard let jsonData = privateKeyAsJwk.data(using: .utf8),
+              let jwk = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: String] else {
+            throw NSError(domain: "JWKError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid JWK format"])
+        }
+    
+    guard let n = jwk["n"],
+          let e = jwk["e"],
+          let d = jwk["d"] else {
+        throw NSError(domain: "JWKError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing RSA JWK parameters"])
+    }
+    
+    let modulus = Data(base64URLEncoded: n)!
+    let publicExponent = Data(base64URLEncoded: e)!
+    let privateExponent = Data(base64URLEncoded: d)!
+    
+    // Create the key attributes for the RSA private key
+    let keyAttributes: [String: Any] = [
+        kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
+        kSecAttrKeyClass as String: kSecAttrKeyClassPrivate,
+        kSecAttrKeySizeInBits as String: modulus.count * 8,
+        kSecPrivateKeyAttrs as String: [
+            kSecAttrIsPermanent as String: false
+        ]
+    ]
+    
+    // Create the private key from the components
+    var error: Unmanaged<CFError>?
+    guard let privateKey = SecKeyCreateWithData(privateExponent as CFData, keyAttributes as CFDictionary, &error) else {
+        throw error!.takeRetainedValue() as Error
+    }
+    
+    return privateKey
+}
+
+func convertECPrivateKey(privateKeyAsJwk: String) throws -> SecKey {
     
     guard let jsonData = privateKeyAsJwk.data(using: .utf8),
               let jwk = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: String] else {
@@ -49,12 +108,40 @@ func convertJWKToECPrivateKeyComponents(privateKeyAsJwk: String) throws -> ECPri
         throw NSError(domain: "JWKError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing JWK parameters"])
     }
     
-    return (
+    let components = (
         crv: crv,
         x: Data(base64URLEncoded: x)!,
         y: Data(base64URLEncoded: y)!,
         d: Data(base64URLEncoded: d)!
     )
+    
+    return try SecKey.representing(ecPrivateKeyComponents: components)
+}
+
+extension RSAKeyPair {
+    
+    // Function to generate RSA key pair
+    public static func generateRSAKeyPair(keySize: Int = 2048) throws -> (privateKey: SecKey, publicKey: SecKey) {
+        let attributes: [String: Any] = [
+            kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
+            kSecAttrKeySizeInBits as String: keySize,
+            kSecPrivateKeyAttrs as String: [
+                kSecAttrIsPermanent as String: false // In-memory key (not stored in keychain)
+            ]
+        ]
+        
+        var error: Unmanaged<CFError>?
+        
+        guard let privateKey = SecKeyCreateRandomKey(attributes as CFDictionary, &error) else {
+            throw error!.takeRetainedValue() as Error
+        }
+        
+        guard let publicKey = SecKeyCopyPublicKey(privateKey) else {
+            throw NSError(domain: "KeyError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to create public key"])
+        }
+        
+        return (privateKey: privateKey, publicKey: publicKey)
+    }
 }
 
 // Base64 URL decoding (handles padding)
