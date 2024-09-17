@@ -27,12 +27,20 @@ final class JoseUtilTests: XCTestCase {
            return
         }
         
-        // When
-        let jws = try JoseUtil.shared.sign(algorithm: "ES256", privateKeyAsJwk: privateKeyValue, headers: [:], claims: ["sub": "123"])
-        print(jws)
+        do {
+            // When
+            let jws = try JoseUtil.shared.sign(algorithm: "ES256", privateKeyAsJwk: privateKeyValue, headers: [:], claims: ["sub": "123"])
+            print(jws)
+            
+            // Then
+            XCTAssertNotNil(jws)
+            XCTAssertTrue(jws.hasPrefix("eyJ"))
+            
+        } catch (let error) {
+            
+            XCTFail("Signing failed with error: \(error)")
+        }
         
-        // Then
-        XCTAssertNotNil(jws)
     }
     
 
