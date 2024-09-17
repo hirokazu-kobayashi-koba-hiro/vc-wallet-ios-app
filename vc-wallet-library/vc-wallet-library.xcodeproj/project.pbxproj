@@ -17,6 +17,8 @@
 		430BD68A2C8DE5040022EDCA /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6892C8DE5040022EDCA /* HttpClientTests.swift */; };
 		430BD68C2C950E190022EDCA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD68B2C950E190022EDCA /* Logger.swift */; };
 		430BD68F2C9522B60022EDCA /* JOSESwift in Frameworks */ = {isa = PBXBuildFile; productRef = 430BD68E2C9522B60022EDCA /* JOSESwift */; };
+		430BD6912C95453C0022EDCA /* JoseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6902C95453C0022EDCA /* JoseUtil.swift */; };
+		430BD6932C95C5080022EDCA /* JoseUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6922C95C5080022EDCA /* JoseUtilTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		430BD6872C8B3E9B0022EDCA /* VerifiableCredentialsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialsError.swift; sourceTree = "<group>"; };
 		430BD6892C8DE5040022EDCA /* HttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
 		430BD68B2C950E190022EDCA /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		430BD6902C95453C0022EDCA /* JoseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoseUtil.swift; sourceTree = "<group>"; };
+		430BD6922C95C5080022EDCA /* JoseUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoseUtilTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			children = (
 				430BD63F2C8B36290022EDCA /* vc_wallet_libraryTests.swift */,
 				430BD6892C8DE5040022EDCA /* HttpClientTests.swift */,
+				430BD6922C95C5080022EDCA /* JoseUtilTests.swift */,
 			);
 			path = "vc-wallet-libraryTests";
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 			children = (
 				430BD6852C8B3CD40022EDCA /* HttpClient.swift */,
 				430BD68B2C950E190022EDCA /* Logger.swift */,
+				430BD6902C95453C0022EDCA /* JoseUtil.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430BD6912C95453C0022EDCA /* JoseUtil.swift in Sources */,
 				430BD68C2C950E190022EDCA /* Logger.swift in Sources */,
 				430BD6882C8B3E9B0022EDCA /* VerifiableCredentialsError.swift in Sources */,
 				430BD6832C8B37FE0022EDCA /* VerifiableCredentialsClient.swift in Sources */,
@@ -238,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				430BD68A2C8DE5040022EDCA /* HttpClientTests.swift in Sources */,
+				430BD6932C95C5080022EDCA /* JoseUtilTests.swift in Sources */,
 				430BD6402C8B36290022EDCA /* vc_wallet_libraryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
