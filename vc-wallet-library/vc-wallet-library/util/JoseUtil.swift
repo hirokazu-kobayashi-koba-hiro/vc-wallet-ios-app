@@ -98,21 +98,26 @@ func convertECPrivateKey(privateKeyAsJwk: String) throws -> SecKey {
     
     guard let jsonData = privateKeyAsJwk.data(using: .utf8),
               let jwk = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: String] else {
+        
             throw NSError(domain: "JWKError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid JWK format"])
         }
     
     guard let crv = jwk["crv"],
-          let x = jwk["x"],
-          let y = jwk["y"],
-          let d = jwk["d"] else {
-        throw NSError(domain: "JWKError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing JWK parameters"])
-    }
+              let x = jwk["x"],
+              let y = jwk["y"],
+              let d = jwk["d"],
+              let xData = Data(base64URLEncoded: x),
+              let yData = Data(base64URLEncoded: y),
+              let dData = Data(base64URLEncoded: d) else {
+        
+            throw NSError(domain: "JWKError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing or invalid JWK parameters"])
+        }
     
     let components = (
         crv: crv,
-        x: Data(base64URLEncoded: x)!,
-        y: Data(base64URLEncoded: y)!,
-        d: Data(base64URLEncoded: d)!
+        x: xData,
+        y: yData,
+        d: dData
     )
     
     return try SecKey.representing(ecPrivateKeyComponents: components)
