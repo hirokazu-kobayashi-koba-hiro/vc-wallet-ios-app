@@ -22,3 +22,26 @@ public enum HttpError: Error {
     case serverMentenanceError(statusCode: Int = 503, response: [String: Any]?)
 
 }
+
+enum JoseUtilError: Error {
+    case unsupportedAlgorithm(String)
+    case invalidJWKFormat
+    case missingJWKParameters
+    case signerCreationFailed
+    case jwsCreationFailed
+    
+    var localizedDescription: String {
+        switch self {
+        case .unsupportedAlgorithm(let alg):
+            return "\(alg) is unsupported"
+        case .invalidJWKFormat:
+            return "Invalid JWK format"
+        case .missingJWKParameters:
+            return "Missing or invalid JWK parameters"
+        case .signerCreationFailed:
+            return "Invalid signer, private key or algorithm is invalid"
+        case .jwsCreationFailed:
+            return "Invalid JWs creation failed"
+        }
+    }
+}
