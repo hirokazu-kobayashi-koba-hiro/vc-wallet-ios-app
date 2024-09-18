@@ -43,7 +43,7 @@ final class JoseUtilTests: XCTestCase {
             
         } catch (let error) {
             
-            XCTFail("Signing failed with error: \(error)")
+            XCTFail("Signing failed with error: \(error.localizedDescription)")
         }
         
     }

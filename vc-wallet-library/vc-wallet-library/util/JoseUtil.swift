@@ -39,14 +39,14 @@ public class JoseUtil {
         let algorithm = try toAlgorithm(algorithm: algorithm)
         
         let jws = try JWS(compactSerialization: jws)
-        let publicKey = try SecKey.convertFromPublickKeyFormattedJwk(algorithm: algorithm, publicKey: publicKeyAsJwk)
+        let publicKey = try SecKey.convertFromPublicKeyFormattedJwk(algorithm: algorithm, publicKey: publicKeyAsJwk)
         guard let verifier = Verifier(signatureAlgorithm: algorithm, key: publicKey) else {
             throw JoseUtilError.signerCreationFailed
         }
         let verifiedJws = try jws.validate(using: verifier)
         
-        guard let header = try JSONSerialization.jsonObject(with: verifiedJws.header.data(), options: []) as? [String: Any],
-            let payload = try JSONSerialization.jsonObject(with: verifiedJws.payload.data(), options: []) as? [String: Any]
+        guard let header = try? JSONSerialization.jsonObject(with: verifiedJws.header.data(), options: []) as? [String: Any],
+            let payload = try? JSONSerialization.jsonObject(with: verifiedJws.payload.data(), options: []) as? [String: Any]
         else {
             throw JoseUtilError.invalidJWKFormat
         }
@@ -83,7 +83,7 @@ extension SecKey {
         }
     }
     
-    static func convertFromPublickKeyFormattedJwk(algorithm: SignatureAlgorithm, publicKey: String) throws -> SecKey {
+    static func convertFromPublicKeyFormattedJwk(algorithm: SignatureAlgorithm, publicKey: String) throws -> SecKey {
         
         switch algorithm {
             
