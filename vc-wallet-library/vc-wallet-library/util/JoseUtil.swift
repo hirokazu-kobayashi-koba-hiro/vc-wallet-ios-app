@@ -21,7 +21,7 @@ public class JoseUtil {
         let claimsAsString = try JSONSerialization.data(withJSONObject: claims, options: [])
         let payload = Payload(claimsAsString)
         
-        let secKey = try SecKey.convertFromJwk(algorithm: algorithm, privateKey: privateKeyAsJwk)
+        let secKey = try SecKey.convertFromPrivateKeyFormattedJwk(algorithm: algorithm, privateKey: privateKeyAsJwk)
         guard let signer = Signer(signatureAlgorithm: algorithm, key: secKey) else {
             throw JoseUtilError.signerCreationFailed
         }
@@ -34,11 +34,42 @@ public class JoseUtil {
         
         return jwtValue
     }
+    
+    public func verify(jws: String, algorithm: String, publicKeyAsJwk: String) throws -> VerifiedJose {
+        let algorithm = try toAlgorithm(algorithm: algorithm)
+        
+        let jws = try JWS(compactSerialization: jws)
+        let publicKey = try SecKey.convertFromPublickKeyFormattedJwk(algorithm: algorithm, publicKey: publicKeyAsJwk)
+        guard let verifier = Verifier(signatureAlgorithm: algorithm, key: publicKey) else {
+            throw JoseUtilError.signerCreationFailed
+        }
+        let verifiedJws = try jws.validate(using: verifier)
+        
+        guard let header = try JSONSerialization.jsonObject(with: verifiedJws.header.data(), options: []) as? [String: Any],
+            let payload = try JSONSerialization.jsonObject(with: verifiedJws.payload.data(), options: []) as? [String: Any]
+        else {
+            throw JoseUtilError.invalidJWKFormat
+        }
+        
+        return VerifiedJose(header: header, payload: payload)
+    }
+}
+
+public struct VerifiedJose {
+    let header: [String: Any]
+    let payload: [String: Any]
+    
+    public init(header: [String : Any], payload: [String : Any]) {
+        self.header = header
+        self.payload = payload
+    }
+    
+    
 }
 
 extension SecKey {
     
-    static func convertFromJwk(algorithm: SignatureAlgorithm, privateKey: String) throws -> SecKey {
+    static func convertFromPrivateKeyFormattedJwk(algorithm: SignatureAlgorithm, privateKey: String) throws -> SecKey {
         
         switch algorithm {
             
@@ -49,6 +80,20 @@ extension SecKey {
         case .ES256, .ES384, .ES512:
             
             return try convertECPrivateKey(privateKeyAsJwk: privateKey)
+        }
+    }
+    
+    static func convertFromPublickKeyFormattedJwk(algorithm: SignatureAlgorithm, publicKey: String) throws -> SecKey {
+        
+        switch algorithm {
+            
+        case .HS256, .HS384, .HS512, .RS256, .RS384, .RS512, .PS256, .PS384, .PS512:
+            
+            throw JoseUtilError.unsupportedAlgorithm(algorithm.rawValue)
+            
+        case .ES256, .ES384, .ES512:
+            
+            return try convertECPublickKey(publickKeyAsJwk: publicKey)
         }
     }
 }
@@ -80,6 +125,31 @@ func convertECPrivateKey(privateKeyAsJwk: String) throws -> SecKey {
     )
     
     return try SecKey.representing(ecPrivateKeyComponents: components)
+}
+
+func convertECPublickKey(publickKeyAsJwk: String) throws -> SecKey {
+    
+    guard let jsonData = publickKeyAsJwk.data(using: .utf8),
+          let jwk = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: String] else {
+        
+        throw JoseUtilError.invalidJWKFormat
+    }
+    
+    guard let crv = jwk["crv"],
+          let x = jwk["x"],
+          let y = jwk["y"],
+          let xData = Data(base64URLEncoded: x),
+          let yData = Data(base64URLEncoded: y) else {
+        throw JoseUtilError.missingJWKParameters
+    }
+    
+    let components = (
+        crv: crv,
+        x: xData,
+        y: yData
+    )
+    
+    return try SecKey.representing(ecPublicKeyComponents: components)
 }
 
 // Base64 URL decoding (handles padding)

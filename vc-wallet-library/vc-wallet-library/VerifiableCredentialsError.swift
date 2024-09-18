@@ -26,9 +26,11 @@ public enum HttpError: Error {
 enum JoseUtilError: Error {
     case unsupportedAlgorithm(String)
     case invalidJWKFormat
+    case invalidJWSFormat
     case missingJWKParameters
     case signerCreationFailed
     case jwsCreationFailed
+    case verifierCreationFailed
     
     var localizedDescription: String {
         switch self {
@@ -36,12 +38,16 @@ enum JoseUtilError: Error {
             return "\(alg) is unsupported"
         case .invalidJWKFormat:
             return "Invalid JWK format"
+        case .invalidJWSFormat:
+            return "Invalid JWS format"
         case .missingJWKParameters:
             return "Missing or invalid JWK parameters"
         case .signerCreationFailed:
-            return "Invalid signer, private key or algorithm is invalid"
+            return "failed creation of signer, private key or algorithm is invalid"
         case .jwsCreationFailed:
             return "Invalid JWs creation failed"
+        case .verifierCreationFailed:
+            return "failed creation of verifier, public key or algorithm is invalid"
         }
     }
 }
