@@ -19,12 +19,14 @@ final class JoseUtilTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testSignWithECPrivateKey() throws {
+    func testSignAndVerifyWithECKey() throws {
         // Given
         let keyPair = try ECKeyPair.generateWith(.P256)
         let privateKey = keyPair.getPrivate()
-        guard let privateKeyValue = privateKey.jsonString() else {
-           return
+        let publicKey = keyPair.getPublic()
+        guard let privateKeyValue = privateKey.jsonString(), let publicKeyValue = publicKey.jsonString() else {
+            XCTFail("failed convert privateKey to String")
+            return
         }
         
         do {
@@ -36,9 +38,12 @@ final class JoseUtilTests: XCTestCase {
             XCTAssertNotNil(jws)
             XCTAssertTrue(jws.hasPrefix("eyJ"))
             
+            let verifiedJose = try JoseUtil.shared.verify(jws: jws, algorithm: "ES256", publicKeyAsJwk: publicKeyValue)
+            print(verifiedJose)
+            
         } catch (let error) {
             
-            XCTFail("Signing failed with error: \(error)")
+            XCTFail("Signing failed with error: \(error.localizedDescription)")
         }
         
     }
