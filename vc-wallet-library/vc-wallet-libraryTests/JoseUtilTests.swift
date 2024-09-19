@@ -31,7 +31,7 @@ final class JoseUtilTests: XCTestCase {
         
         do {
             // When
-            let jws = try JoseUtil.shared.sign(algorithm: "ES256", privateKeyAsJwk: privateKeyValue, headers: [:], claims: ["sub": "123"])
+            let jws = try JoseUtil.shared.sign(algorithm: "ES256", privateKeyAsJwk: privateKeyValue, headers: ["cty": "JWT"], claims: ["sub": "123"])
             print(jws)
             
             // Then

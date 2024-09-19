@@ -16,12 +16,19 @@ public class JoseUtil {
     
     public func sign(algorithm: String, privateKeyAsJwk: String, headers: [String: Any], claims: [String: Any]) throws -> String {
         let algorithm = try toAlgorithm(algorithm: algorithm)
-        var jwsHeader = JWSHeader(algorithm: algorithm)
         
         let claimsAsString = try JSONSerialization.data(withJSONObject: claims, options: [])
         let payload = Payload(claimsAsString)
         
-        let secKey = try SecKey.convertFromPrivateKeyFormattedJwk(algorithm: algorithm, privateKey: privateKeyAsJwk)
+        let (kid, secKey) = try SecKey.convertFromPrivateKeyFormattedJwk(algorithm: algorithm, privateKey: privateKeyAsJwk)
+        var header = headers
+        header["alg"] = algorithm.rawValue
+        if let unwrappedKid = kid {
+            header["kid"] = unwrappedKid
+        }
+        let jwsHeader = try JWSHeader(parameters: header)
+        
+        
         guard let signer = Signer(signatureAlgorithm: algorithm, key: secKey) else {
             throw JoseUtilError.signerCreationFailed
         }
@@ -46,7 +53,7 @@ public class JoseUtil {
         let verifiedJws = try jws.validate(using: verifier)
         
         guard let header = try? JSONSerialization.jsonObject(with: verifiedJws.header.data(), options: []) as? [String: Any],
-            let payload = try? JSONSerialization.jsonObject(with: verifiedJws.payload.data(), options: []) as? [String: Any]
+              let payload = try? JSONSerialization.jsonObject(with: verifiedJws.payload.data(), options: []) as? [String: Any]
         else {
             throw JoseUtilError.invalidJWKFormat
         }
@@ -69,7 +76,7 @@ public struct VerifiedJose {
 
 extension SecKey {
     
-    static func convertFromPrivateKeyFormattedJwk(algorithm: SignatureAlgorithm, privateKey: String) throws -> SecKey {
+    static func convertFromPrivateKeyFormattedJwk(algorithm: SignatureAlgorithm, privateKey: String) throws -> (String?, SecKey) {
         
         switch algorithm {
             
@@ -98,7 +105,7 @@ extension SecKey {
     }
 }
 
-func convertECPrivateKey(privateKeyAsJwk: String) throws -> SecKey {
+func convertECPrivateKey(privateKeyAsJwk: String) throws -> (String?, SecKey) {
     
     guard let jsonData = privateKeyAsJwk.data(using: .utf8),
           let jwk = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: String] else {
@@ -123,8 +130,8 @@ func convertECPrivateKey(privateKeyAsJwk: String) throws -> SecKey {
         y: yData,
         d: dData
     )
-    
-    return try SecKey.representing(ecPrivateKeyComponents: components)
+    let kid = jwk["kid"]
+    return (kid, try SecKey.representing(ecPrivateKeyComponents: components))
 }
 
 func convertECPublickKey(publickKeyAsJwk: String) throws -> SecKey {
