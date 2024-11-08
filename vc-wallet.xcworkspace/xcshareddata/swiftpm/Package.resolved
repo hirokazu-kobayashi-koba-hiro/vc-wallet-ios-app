@@ -87,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hirokazu-kobayashi-koba-hiro/vc-wallet-ios-library.git",
       "state" : {
-        "revision" : "c526657cb8b785af694b983ea5eec402d69de2e9",
-        "version" : "0.0.5"
+        "revision" : "d194bcdf0387c707418e6fb09f292f4c53a4a272",
+        "version" : "0.0.6"
       }
     }
   ],

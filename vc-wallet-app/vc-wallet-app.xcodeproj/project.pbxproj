@@ -15,8 +15,8 @@
 		430BD66A2C8B368E0022EDCA /* vc_wallet_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6692C8B368E0022EDCA /* vc_wallet_appTests.swift */; };
 		430BD6742C8B368E0022EDCA /* vc_wallet_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6732C8B368E0022EDCA /* vc_wallet_appUITests.swift */; };
 		430BD6762C8B368E0022EDCA /* vc_wallet_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BD6752C8B368E0022EDCA /* vc_wallet_appUITestsLaunchTests.swift */; };
-		430BD69E2C9F01310022EDCA /* VcWalletLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 430BD69D2C9F01310022EDCA /* VcWalletLibrary */; };
 		430E82222CC1D30500810865 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430E82212CC1D2FF00810865 /* TopView.swift */; };
+		430E82272CC722AA00810865 /* VcWalletLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 430E82262CC722AA00810865 /* VcWalletLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				430BD69E2C9F01310022EDCA /* VcWalletLibrary in Frameworks */,
+				430E82272CC722AA00810865 /* VcWalletLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +84,7 @@
 				430BD6552C8B368C0022EDCA /* vc-wallet-app */,
 				430BD6682C8B368E0022EDCA /* vc-wallet-appTests */,
 				430BD6722C8B368E0022EDCA /* vc-wallet-appUITests */,
+				430E82252CC722AA00810865 /* Frameworks */,
 				430BD6542C8B368C0022EDCA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +138,13 @@
 			path = "vc-wallet-appUITests";
 			sourceTree = "<group>";
 		};
+		430E82252CC722AA00810865 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,7 +162,7 @@
 			);
 			name = "vc-wallet-app";
 			packageProductDependencies = (
-				430BD69D2C9F01310022EDCA /* VcWalletLibrary */,
+				430E82262CC722AA00810865 /* VcWalletLibrary */,
 			);
 			productName = "vc-wallet-app";
 			productReference = 430BD6532C8B368C0022EDCA /* vc-wallet-app.app */;
@@ -229,7 +237,7 @@
 			);
 			mainGroup = 430BD64A2C8B368C0022EDCA;
 			packageReferences = (
-				430BD69C2C9F01310022EDCA /* XCRemoteSwiftPackageReference "vc-wallet-ios-library" */,
+				430E82242CC71CA900810865 /* XCRemoteSwiftPackageReference "vc-wallet-ios-library" */,
 			);
 			productRefGroup = 430BD6542C8B368C0022EDCA /* Products */;
 			projectDirPath = "";
@@ -622,20 +630,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		430BD69C2C9F01310022EDCA /* XCRemoteSwiftPackageReference "vc-wallet-ios-library" */ = {
+		430E82242CC71CA900810865 /* XCRemoteSwiftPackageReference "vc-wallet-ios-library" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hirokazu-kobayashi-koba-hiro/vc-wallet-ios-library.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.4;
+				minimumVersion = 0.0.6;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		430BD69D2C9F01310022EDCA /* VcWalletLibrary */ = {
+		430E82262CC722AA00810865 /* VcWalletLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 430BD69C2C9F01310022EDCA /* XCRemoteSwiftPackageReference "vc-wallet-ios-library" */;
+			package = 430E82242CC71CA900810865 /* XCRemoteSwiftPackageReference "vc-wallet-ios-library" */;
 			productName = VcWalletLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */

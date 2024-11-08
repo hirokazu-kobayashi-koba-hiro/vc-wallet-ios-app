@@ -8,11 +8,16 @@
 
 import SwiftUI
 import SwiftData
-import VisionKit
 import VcWalletLibrary
 
 struct TopView: View {
+    let name: String
     @State private var isShowingScanner = false
+    @State private var isError = false
+    
+    public init(name: String) {
+        self.name = name
+    }
     
     var body: some View {
         Button(action: {
@@ -23,69 +28,28 @@ struct TopView: View {
             Text("pre-authorized")
         }
         )
+        .alert(
+            "alertTitle",
+            isPresented: $isError
+        ) {
+            Button("OK") {
+                isError = false
+            }
+        }
         .padding()
         .sheet(isPresented: $isShowingScanner) {
-            QRCodeReader(onRecognize: { value in
+            QrCodeReaderView(onRecognized: { value in
                 guard let url = value else {
                     return
                 }
                 handlePreAuthorization(url: url)
                 isShowingScanner = false
+                isError = true
             }).ignoresSafeArea(.all)
         }
     }
 }
 
-struct QRCodeReader: UIViewControllerRepresentable {
-    
-    private let onRecognize: (String?) -> Void
-    
-    public init(onRecognize: @escaping (String?) -> Void) {
-        self.onRecognize = onRecognize
-    }
-    
-    public func makeUIViewController(context: Context) -> some UIViewController {
-        let viewController = DataScannerViewController(
-            recognizedDataTypes: [.barcode(symbologies: [.qr])],
-            qualityLevel: .balanced,
-            recognizesMultipleItems: false,
-            isHighFrameRateTrackingEnabled: false,
-            isHighlightingEnabled: true
-        )
-        viewController.delegate = context.coordinator
-        
-        DispatchQueue.main.async {
-            try? viewController.startScanning()
-        }
-        
-        return viewController
-    }
-    
-    public func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-    }
-    
-    public func makeCoordinator() -> Coordinator {
-        Coordinator(parent: self)
-    }
-    
-    public final class Coordinator: NSObject, DataScannerViewControllerDelegate {
-        let parent: QRCodeReader
-        
-        fileprivate init(parent: QRCodeReader) {
-            self.parent = parent
-        }
-        
-        public func dataScanner(_ dataScanner: DataScannerViewController, didAdd addedItems: [RecognizedItem], allItems: [RecognizedItem]) {
-            guard let item = allItems.first else { return }
-            switch item {
-            case .barcode(let recognizedCode):
-                parent.onRecognize(recognizedCode.payloadStringValue)
-            default:
-                break
-            }
-        }
-    }
-}
 
 func handlePreAuthorization(url: String) {
     Task {
@@ -114,5 +78,5 @@ func handlePreAuthorization(url: String) {
 
 
 #Preview {
-    TopView()
+    TopView(name: "Preview")
 }
