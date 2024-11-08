@@ -25,7 +25,7 @@ struct vc_wallet_appApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TopView(name: "aaaa")
         }
         .modelContainer(sharedModelContainer)
     }
